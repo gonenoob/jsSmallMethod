@@ -10,4 +10,3 @@ window.addEventListener(resizeEvt, recalc, false);
 document.addEventListener('DOMContentLoaded', recalc, false);
 
 
-resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
