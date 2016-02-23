@@ -1,0 +1,82 @@
+1.合并多个对象 $.extend(obj,obj1,obj2...})
+<span style="font-size:18px;">//用法: jQuery.extend(obj1,obj2,obj3,..) 
+  var Css1={size: "10px",style: "oblique"} 
+  var Css2={size: "12px",style: "oblique",weight: "bolder"} 
+  jQuery.extend(Css1,Css2) 
+//结果:Css1的size属性被覆盖,而且继承了Css2的weight属性 
+// Css1 = {size: "12px",style: "oblique",weight: "bolder"} 
+</span> 
+
+2.深度嵌套对象  $.extend(true,obj,obj1,obj2...)
+<span style="font-size:18px;"> 
+jQuery.extend( 
+  { name: “John”, location: { city: “Boston” } }, 
+  { last: “Resig”, location: { state: “MA” } } 
+); 
+// 结果: 
+// => { name: “John”, last: “Resig”, location: { state: “MA” } } 
+// 新的更深入的
+jQuery.extend( true, 
+  { name: “John”, location: { city: “Boston” } }, 
+{ last: “Resig”, location: { state: “MA” } } 
+); 
+// 结果 
+// => { name: “John”, last: “Resig”, 
+// location: { city: “Boston”, state: “MA” } } 
+</span> 
+
+3.给jQuery添加静态方法 $.extend(obj) $.fn.extend(obj)
+3.1.类级别
+  类级别你可以理解为拓展jquery类，最明显的例子是$.ajax(...),相当于静态方法。 
+
+  开发扩展其方法时使用$.extend方法，即jQuery.extend(object); 
+  
+  例如：
+  $.extend({ 
+      add:function(a,b){return a+b;} , 
+      minus:function(a,b){return a-b;} 
+  }); 
+
+调用：
+var i = $.add(3,2); 
+var j = $.minus(3,2); 
+
+3.2.对象级别
+对象级别则可以理解为基于对象的拓展，如$("#table").changeColor(...); 这里这个changeColor呢，就是基于对象的拓展了。 
+
+开发扩展其方法时使用$.fn.extend方法，即jQuery.fn.extend(object); 
+
+例如：
+$.fn.extend({ 
+  check:function(){ 
+    return this.each({ 
+      this.checked=true; 
+    }); 
+  }, 
+  
+  uncheck:function(){ 
+    return this.each({ 
+    this.checked=false; 
+    }); 
+  } 
+}); 
+
+调用：
+$('input[type=checkbox]').check(); 
+$('input[type=checkbox]').uncheck(); 
+
+3.扩展
+
+$.xy = { 
+  add:function(a,b){return a+b;} , 
+  minus:function(a,b){return a-b;}, 
+  voidMethod:function(){ alert("void"); } 
+}; 
+var i = $.xy.add(3,2); 
+var m = $.xy.minus(3,2); 
+$.xy.voidMethod(); 
+
+
+
+
+
