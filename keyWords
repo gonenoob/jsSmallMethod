@@ -1,0 +1,14 @@
+//查找页面keyword并跳到第一个keyword的位置
+require("jquery",function(){
+	$("body").on("click","#find",function(){
+	var keyword = $("#key-words").val();
+    var $parent = $("p:contains('"+ keyword +"')").eq(0);
+	if($parent!==""){
+		var top = $parent.position().top;
+        $parent.html(function(i,h){
+        	return h.replace(keyword,"<b style='color:red;'>"+keyword+"</b>");
+        })
+		$("body").scrollTop(top);
+	}	
+  })
+})
