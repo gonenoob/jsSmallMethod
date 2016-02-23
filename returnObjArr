@@ -1,0 +1,16 @@
+//返回对象数组
+    var arr = $(".items-container a").map(function() {
+
+        var url = $(this).attr("href");
+        var id = getUrlParams(url);
+        var width = $(this).find("img").data("width");
+        var height = $(this).find("img").data("height");
+        if (width != height) {
+            return {
+                id: id,
+                width: $(this).find("img").data("width"),
+                height: $(this).find("img").data("height")
+            }
+        }
+
+    }).get();
