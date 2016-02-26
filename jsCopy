@@ -1,12 +1,23 @@
 
-// 如果只是兼容IE可用如下方法实现：
+tbtx下：
+require("base/2.0/js/gallery/zeroclipboard/1.3.5/ZeroClipboard.min.js", function(ZeroClipboard) {
+        var client = new ZeroClipboard(document.getElementById("copy-btn"), {
+            moviePath: "http://static.tianxia.taobao.com/tbtx/base/2.0/js/gallery/zeroclipboard/1.3.5/ZeroClipboard.swf"
+        });
 
+        client.on("complete", function(event) {
+            S.broadcast("复制成功!");
+        });
+    });
+//document.getElementById("copy-btn")拿到要复制的内容
+
+//其他
+
+// 如果只是兼容IE可用如下方法实现：
 
 function copyToClipboard() {
 
-
     var format = "text";
-
 
     var value;
 
@@ -15,7 +26,6 @@ function copyToClipboard() {
     if (!+[1, ]) {
         isIE = true;
     }
-
     if (isIE) {
         value = document.getElementById("exCode").outerText;
 
@@ -25,8 +35,6 @@ function copyToClipboard() {
         alert("已拷贝到剪切板！");
     }
 }
-
-
 // 但是非IE等浏览器及Firefox、Chrome、Opera等都不支持window.clipboardData对象，
 //且不允许前端页面直接复制元素信息至剪贴板，
 //所以要实现兼容所有浏览器的实现复制到剪贴板的功能需用到ZeroClipboard.js、ZeroClipboard.swf、jquery-1.7.1.js等核心JS Framework：
@@ -54,14 +62,4 @@ function ZeroClipboardInit() {
     clip.glue('BtnExport');
 }
 
-tbtx下：
-require("base/2.0/js/gallery/zeroclipboard/1.3.5/ZeroClipboard.min.js", function(ZeroClipboard) {
-        var client = new ZeroClipboard(document.getElementById("copy-btn"), {
-            moviePath: "http://static.tianxia.taobao.com/tbtx/base/2.0/js/gallery/zeroclipboard/1.3.5/ZeroClipboard.swf"
-        });
 
-        client.on("complete", function(event) {
-            S.broadcast("复制成功!");
-        });
-    });
-//document.getElementById("copy-btn")拿到要复制的内容
