@@ -1,0 +1,60 @@
+虽然我们可以使用事件处理函数完成对象事件的几乎所有操作, 但是jQuery提供了对常用事件的封装. 比如单击事件对应的两个方法click()和click(fn)分别用来触发单击事件和设置单击事件.
+
+设置单击事件:
+
+$("#testDiv").click(function(event) { alert("test div clicked ! "); });
+
+等效于:
+
+$("#testDiv").bind("click", function(event) { alert("test div clicked ! "); });
+触发单击事件:
+
+$("#testDiv").click();
+
+等效于
+
+$("#testDiv").trigger("click");
+ 
+
+注意这里等效的是trigger而不是triggerHandler.
+
+此类方法在jQuery中英文叫做Event Helpers, 我找不到很好的翻译方式, 所以按照功能称其为"快捷方法",  征集好的翻译名称!
+
+下面是jQuery的快捷方法列表:
+
+由于都是都是对应的事件, 所以不再写说明和举例了.
+
+名称	说明	举例
+blur( )	 	 
+blur( fn )	 	 
+change( )	 	 
+change( fn )	 	 
+click( )	 	 
+click( fn )	 	 
+dblclick( )	 	 
+dblclick( fn )	 	 
+error( )	 	 
+error( fn )	 	 
+focus( )	 	 
+focus( fn )	 	 
+keydown( )	 	 
+keydown( fn )	 	 
+keypress( )	 	 
+keypress( fn )	 	 
+keyup( )	 	 
+keyup( fn )	 	 
+load( fn )	 	 
+mousedown( fn )	 	 
+mouseenter( fn )	 	 
+mouseleave( fn )	 	 
+mousemove( fn )	 	 
+mouseout( fn )	 	 
+mouseover( fn )	 	 
+mouseup( fn )	 	 
+resize( fn )	 	 
+scroll( fn )	 	 
+select( )	 	 
+select( fn )	 	 
+submit( )	 	 
+submit( fn )	 	 
+unload( fn )
