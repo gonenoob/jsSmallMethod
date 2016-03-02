@@ -1,0 +1,24 @@
+ jQuery提供了两个和事件相关的帮助方法: hover( over, out ) 和 toggle( fn, fn2, fn3,fn4,... )
+ 
+ 1. hover( over, out ) 
+hover函数主要解决在原始javascript中mouseover和mouseout函数存在的问题
+hover(function(){},function(){})
+第一个函数为mouseover执行，第二个为mouseout执行
+
+具体mouseleave和mouseout两者之间的区别主要有以下两点：
+
+1.1.不论鼠标指针离开被选元素还是任何子元素，都会触发 mouseout 事件。
+
+1.2.只有在鼠标指针离开被选元素时，才会触发 mouseleave 事件。
+
+
+2. toggle( fn, fn2, fn3,fn4,... )
+toggle函数可以为对象添加click事件绑定函数,  但是设置每次点击后依次的调用函数。
+
+如果点击了一个匹配的元素，则触发指定的第一个函数，当再次点击同一元素时，则触发指定的第二个函数，如果有更多函数，则再次触发，直到最后一个。随后的每次点击都重复对这几个函数的轮番调用。
+
+可以使用unbind("click")来删除。
+
+
+
+
