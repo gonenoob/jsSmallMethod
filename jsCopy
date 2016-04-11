@@ -2,7 +2,7 @@
 tbtx下：
 require("base/2.0/js/gallery/zeroclipboard/1.3.5/ZeroClipboard.min.js", function(ZeroClipboard) {
         var client = new ZeroClipboard(document.getElementById("copy-btn"), {
-            moviePath: "http://static.tianxia.taobao.com/tbtx/base/2.0/js/gallery/zeroclipboard/1.3.5/ZeroClipboard.swf"
+            moviePath: "https://sheng.miiee.com/tbtx/base/2.0/js/gallery/zeroclipboard/1.3.5/ZeroClipboard.swf"
         });
 
         client.on("complete", function(event) {
