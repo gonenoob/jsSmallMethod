@@ -14,3 +14,4 @@ require("jquery",function(){
 })
 
 window.getSelection()获取鼠标选中文字
+window.getSelection().getRangeAt(0).surroundContents(document.createElement("span"))鼠标选中的文字包裹一层span
