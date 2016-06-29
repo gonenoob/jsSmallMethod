@@ -12,3 +12,5 @@ require("jquery",function(){
 		}	
 	 })
 })
+
+window.getSelection()获取鼠标选中文字
