@@ -1,0 +1,10 @@
+
+淘宝提供了比较权威的IP地址库，调用地址：http://ip.taobao.com/service/getIpInfo.php?ip=123.123.123.123，返回对应IP的省市相关信息。
+调用方法：
+$(function(){ 
+    $.getJSON("getTaoIP.php",function(json){ 
+        var myprovince2 = json.data.region;         
+        var mycity2 = json.data.city; 
+        $("#city_2").html("您所在的城市是："+myprovince2+mycity2); 
+    }); 
+}); 
